@@ -1,0 +1,22 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/graphql",
+        "customMatcher": {
+            "name": "graphql-body-matcher",
+            "parameters": {
+                "query": "query SystemPreview($systemId: ID!) { system(id: $systemId) { systemId } }",
+                "variables": {
+                    "systemId": "SYS_999"
+                }
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "{\n  \"errors\": [\n    {\n      \"message\": \"System not found\"\n    }\n  ]\n}"
+    }
+}

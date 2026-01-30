@@ -1,0 +1,24 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/graphql",
+        "customMatcher": {
+            "name": "graphql-body-matcher",
+            "parameters": {
+                "query": "query VerifyUnit($unitId: ID!, $unitName: String!, $userId: ID!) { verifyUnit(unitId: $unitId, unitName: $unitName, userId: $userId) { unitId unitName userId userName description verified } }",
+                "variables": {
+                    "unitId": "UNIT_001",
+                    "unitName": "Thermal Unit",
+                    "userId": "USR_001"
+                }
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "{\n  \"data\": {\n    \"verifyUnit\": {\n      \"unitId\": \"UNIT_001\",\n      \"unitName\": \"Thermal Unit\",\n      \"userId\": \"USR_001\",\n      \"userName\": \"John Doe\",\n      \"description\": \"Main Thermal Unit\",\n      \"verified\": true\n    }\n  }\n}"
+    }
+}

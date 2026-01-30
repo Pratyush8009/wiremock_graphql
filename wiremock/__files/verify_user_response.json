@@ -1,0 +1,16 @@
+{
+    "data": {
+        "verifyUser": {
+            "success": true,
+            "message": "User verified successfully",
+            "user": {
+                "userId": "user_002",
+                "userName": "Pravat",
+                "email": "pratyush@example.com",
+                "userType": "Admin",
+                "accountType": "Premium",
+                "description": "Test user"
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/graphql",
+        "customMatcher": {
+            "name": "graphql-body-matcher",
+            "parameters": {
+                "query": "query VerifyUser($userId: ID!, $userName: String!) { verifyUser(userId: $userId, userName: $userName) { userId userName email userType accountType unitCount systemCount verified } }",
+                "variables": {
+                    "userId": "USR_001",
+                    "userName": "John Doe"
+                }
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "{\n  \"data\": {\n    \"verifyUser\": {\n      \"userId\": \"USR_001\",\n      \"userName\": \"John Doe\",\n      \"email\": \"john.doe@simulysis.com\",\n      \"userType\": \"ORG_USER\",\n      \"accountType\": \"PREMIUM\",\n      \"unitCount\": 3,\n      \"systemCount\": 7,\n      \"verified\": true\n    }\n  }\n}"
+    }
+}

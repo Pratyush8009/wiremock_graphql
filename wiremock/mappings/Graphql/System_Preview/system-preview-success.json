@@ -1,0 +1,22 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/graphql",
+        "customMatcher": {
+            "name": "graphql-body-matcher",
+            "parameters": {
+                "query": "query SystemPreview($systemId: ID!) { system(id: $systemId) { systemId systemName systemType createdAt description unit { unitId unitName } owner { userId userName email } ioProperties { name ioType dataType required defaultValue } } }",
+                "variables": {
+                    "systemId": "SYS_001"
+                }
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "{\n  \"data\": {\n    \"system\": {\n      \"systemId\": \"SYS_001\",\n      \"systemName\": \"Temperature Monitor\",\n      \"systemType\": \"Sensor\",\n      \"createdAt\": \"2026-01-30T10:15:00Z\",\n      \"description\": \"Monitors temperature\",\n      \"unit\": {\n        \"unitId\": \"UNIT_001\",\n        \"unitName\": \"Thermal Unit\"\n      },\n      \"owner\": {\n        \"userId\": \"USR_001\",\n        \"userName\": \"John Doe\",\n        \"email\": \"john.doe@simulysis.com\"\n      },\n      \"ioProperties\": [\n        {\n          \"name\": \"temperature\",\n          \"ioType\": \"output\",\n          \"dataType\": \"Double\",\n          \"required\": true,\n          \"defaultValue\": 0.0\n        },\n        {\n          \"name\": \"threshold\",\n          \"ioType\": \"input\",\n          \"dataType\": \"Double\",\n          \"required\": false,\n          \"defaultValue\": 25.0\n        }\n      ]\n    }\n  }\n}"
+    }
+}

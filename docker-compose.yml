@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  wiremock:
+    image: wiremock/wiremock:3.3.1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./wiremock/mappings:/home/wiremock/mappings
+      - ./wiremock/__files:/home/wiremock/__files
+      - ./wiremock/extensions/wiremock-graphql-extension-0.9.0-jar-with-dependencies.jar:/var/wiremock/extensions/wiremock-graphql-extension-0.9.0-jar-with-dependencies.jar
+    command: [ "--extensions", "io.github.nilwurtz.GraphqlBodyMatcher" ]
