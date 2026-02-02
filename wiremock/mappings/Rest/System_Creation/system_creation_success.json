@@ -1,0 +1,40 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/system_creation",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.system_name"
+      },
+      {
+        "matchesJsonPath": "$.system_type"
+      },
+      {
+        "matchesJsonPath": "$.unit_id"
+      },
+      {
+        "matchesJsonPath": "$.tags"
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "system_id": "SYS_001",
+      "system_name": "Cooling System",
+      "system_type": "THERMAL",
+      "unit_id": "UNIT_001",
+      "tags": ["temperature", "sensor", "iot"],
+      "created_at": "2026-01-31T10:15:30Z",
+      "storage": "50GB"
+    }
+  }
+}

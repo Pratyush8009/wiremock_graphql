@@ -1,0 +1,52 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/system-io-list",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.system_id == 'SYS_001')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "system_id": "SYS_001",
+      "ioCount": 3,
+      "ioList": [
+        {
+          "io_id": "IO_001",
+          "property_name": "temperature",
+          "property_type": "INPUT",
+          "data_type": "FLOAT",
+          "required": true,
+          "default_value": 0.0
+        },
+        {
+          "io_id": "IO_002",
+          "property_name": "pressure",
+          "property_type": "INPUT",
+          "data_type": "FLOAT",
+          "required": false,
+          "default_value": null
+        },
+        {
+          "io_id": "IO_003",
+          "property_name": "fanStatus",
+          "property_type": "OUTPUT",
+          "data_type": "BOOLEAN",
+          "required": true,
+          "default_value": false
+        }
+      ]
+    }
+  }
+}

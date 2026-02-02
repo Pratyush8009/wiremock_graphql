@@ -8,8 +8,7 @@
         "query": "query VerifyUnit($unitId: ID!, $unitName: String!, $userId: ID!) { verifyUnit(unitId: $unitId, unitName: $unitName, userId: $userId) { verified } }",
         "variables": {
           "unitId": "UNIT_999",
-          "unitName": "Invalid Unit",
-          "userId": "USR_001"
+          "unitName": "Invalid Unit"
         }
       }
     }

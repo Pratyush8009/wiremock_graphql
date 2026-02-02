@@ -5,10 +5,10 @@
         "customMatcher": {
             "name": "graphql-body-matcher",
             "parameters": {
-                "query": "query VerifyUser($userId: ID!, $userName: String!) { verifyUser(userId: $userId, userName: $userName) { userId userName email userType accountType unitCount systemCount verified } }",
+                "query": "query GetUserDetails($userId: ID!) { user(id: $userId) { userId userName email userType accountType units { unitCount list { unitId unitName } } systems { systemCount list { systemId systemName } } } }",
                 "variables": {
                     "userId": "USR_001",
-                    "userName": "John Doe"
+                    "userName": "Pratyush"
                 }
             }
         }
@@ -18,6 +18,6 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "body": "{\n  \"data\": {\n    \"verifyUser\": {\n      \"userId\": \"USR_001\",\n      \"userName\": \"John Doe\",\n      \"email\": \"john.doe@simulysis.com\",\n      \"userType\": \"ORG_USER\",\n      \"accountType\": \"PREMIUM\",\n      \"unitCount\": 3,\n      \"systemCount\": 7,\n      \"verified\": true\n    }\n  }\n}"
+        "body": "{\n  \"data\": {\n    \"user\": {\n      \"userId\": \"USR_001\",\n      \"userName\": \"John Doe\",\n      \"email\": \"john.doe@simulysis.com\",\n      \"userType\": \"ORG_USER\",\n      \"accountType\": \"PREMIUM\",\n      \"units\": {\n        \"unitCount\": 3,\n        \"list\": [\n          { \"unitId\": \"UNIT_001\", \"unitName\": \"Thermal Unit\" },\n          { \"unitId\": \"UNIT_002\", \"unitName\": \"Solar Unit\" },\n          { \"unitId\": \"UNIT_003\", \"unitName\": \"Wind Unit\" }\n        ]\n      },\n      \"systems\": {\n        \"systemCount\": 7,\n        \"list\": [\n          { \"systemId\": \"SYS_001\", \"systemName\": \"Cooling System\" },\n          { \"systemId\": \"SYS_002\", \"systemName\": \"Heating System\" },\n          { \"systemId\": \"SYS_003\", \"systemName\": \"Monitoring System\" }\n        ]\n      }\n    }\n  }\n}"
     }
 }

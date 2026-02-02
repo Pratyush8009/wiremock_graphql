@@ -1,0 +1,42 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/api/system-io-creation",
+        "headers": {
+            "Content-Type": {
+                "contains": "application/json"
+            }
+        },
+        "bodyPatterns": [
+            {
+                "matchesJsonPath": "$.system_id"
+            },
+            {
+                "matchesJsonPath": "$.property_name"
+            },
+            {
+                "matchesJsonPath": "$.property_type"
+            },
+            {
+                "matchesJsonPath": "$.data_type"
+            },
+            {
+                "matchesJsonPath": "$.required"
+            }
+        ]
+    },
+    "response": {
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "io_id": "IO_001",
+            "property_name": "temperature",
+            "property_type": "INPUT",
+            "data_type": "FLOAT",
+            "required": true,
+            "default_value": 0.0
+        }
+    }
+}

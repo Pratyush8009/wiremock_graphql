@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "PUT",
+    "url": "/api/system-io-update",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.io_id == 'IO_001')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "io_id": "IO_001",
+      "property_name": "temperature",
+      "property_type": "INPUT",
+      "data_type": "FLOAT",
+      "required": false,
+      "default_value": 25.0
+    }
+  }
+}
